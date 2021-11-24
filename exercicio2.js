@@ -54,3 +54,28 @@ const imagens = [
     }
   ];
 
+  let imgIndice = 0;
+
+  let anteriorBotaoEl = document.querySelector('#anterior');
+  let proximoBotaoEl = document.querySelector('#proximo');
+  let slideEl = document.querySelector('#slide');
+
+  anteriorBotaoEl.addEventListener('click', () => {
+    imgIndice--;
+    if( imgIndice < 0 ) {
+      imgIndice = imagens.length - 1;
+    }
+    
+    slideEl.src = servidorDasImagens + '/' + imagens[imgIndice].arquivo;
+    slideEl.alt = imagens[imgIndice].descricao;
+  })
+
+  proximoBotaoEl.addEventListener('click', () => {
+    imgIndice++;
+    if( imgIndice >= imagens.length ) {
+      imgIndice = 0;
+    }
+    
+    slideEl.src = servidorDasImagens + '/' + imagens[imgIndice].arquivo;
+    slideEl.alt = imagens[imgIndice].descricao;  
+  })
