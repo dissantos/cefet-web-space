@@ -72,9 +72,7 @@ const imagens = [
 
   proximoBotaoEl.addEventListener('click', () => {
     imgIndice++;
-    if( imgIndice >= imagens.length ) {
-      imgIndice = 0;
-    }
+    imgIndice = imgIndice%imagens.length;
     
     slideEl.src = servidorDasImagens + '/' + imagens[imgIndice].arquivo;
     slideEl.alt = imagens[imgIndice].descricao;  
